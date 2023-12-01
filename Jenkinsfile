@@ -3,7 +3,6 @@
 pipeline{
 
     agent any
-    //agent { label 'Demo' }
 
     parameters{
 
@@ -20,7 +19,7 @@ pipeline{
             steps{
             gitCheckout(
                 branch: "main",
-                url: "https://github.com/himanshu38885/Java_app_3.0-updated.git"
+                url: "https://github.com/Pralay-95/Java_app_3.0.git"
             )
             }
         }
@@ -73,11 +72,11 @@ pipeline{
                }
             }
         }
-        stage ('Pushing Jar to Jfrog : python'){
+        sstage ('Pushing Jar to Jfrog : python'){
           when { expression {  params.action == 'create' } }
           steps{
             script{
-                jarPush()
+                jfrogPush()
                 }
             }
         }
